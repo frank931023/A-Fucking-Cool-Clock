@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>A Fucking Cool Clock</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.con/a076d05399.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="clock">
+                <div class="hour">
+                    <div class="hr" id="hr"></div>
+                </div>
+                <div class="min">
+                    <div class="mn" id="mn"></div>
+                </div>
+                <div class="sec">
+                    <div class="sc" id="sc"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sign">
+        <p>Presented By 可愛的仁祥 on 2022 / 02 / 01</p>
+    </div>
+
+    <script>
+        const deg = 6;
+        const hr = document.querySelector('#hr');
+        const mn = document.querySelector('#mn');
+        const sc = document.querySelector('#sc');
+
+        setInterval(() => {
+            let day = new Date();
+            let hh = day.getHours() * 30;
+            let mm = day.getMinutes() * deg;
+            let ss = day.getSeconds() * deg;
+
+            hr.style.transform = `rotateZ(${hh + (mm/12)}deg)`;
+            mn.style.transform = `rotateZ(${(mm)}deg)`;
+            sc.style.transform = `rotateZ(${(ss)}deg)`;
+        })
+    </script>
+</body>
+
+</html>
